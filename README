@@ -1,0 +1,24 @@
+phpLoopia Class 1.0
+
+Written by Erik Pettersson (mail@ptz0n.se)
+Project Home Page: http://wiki.github.com/ptz0n/phpLoopia/
+Loopia API Documentation: https://www.loopia.se/api
+Released under GNU Lesser General Public License (http://www.gnu.org/copyleft/lgpl.html)
+
+The class supports the following method calls:
+
+* addDomainToAccount
+* addSubdomain
+* addZoneRecord
+* domainIsFree
+* getDomain
+* getDomains
+* getSubdomains
+* getZoneRecords
+* payInvoiceUsingCredits
+* removeSubdomain
+* removeZoneRecord
+* updateZoneRecord
+* createNewAccount
+* getCustomers
+* transferCredits
