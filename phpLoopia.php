@@ -3,6 +3,7 @@
  * phpLoopia Class 1.0
  * Written by Erik Pettersson (mail@ptz0n.se)
  * Project Home Page: http://wiki.github.com/ptz0n/phpLoopia/
+ * Loopia API Documentation: https://www.loopia.se/api
  * Released under GNU Lesser General Public License (http://www.gnu.org/copyleft/lgpl.html)
  *
  *	 Please submit all issues to the GitHub project page:
@@ -177,6 +178,39 @@ class phpLoopia
     {
         if($this->reseller == true) $request = xmlrpc_encode_request("updateZoneRecord", array($this->username, $this->password, $customer_number, $domain, $subdomain, $record_obj));
         else $request = xmlrpc_encode_request("updateZoneRecord", array($this->username, $this->password, $domain, $subdomain, $record_obj));
+        return $this->call($request);
+    }
+
+
+    /*
+     * createNewAccount
+     * https://www.loopia.se/api/createnewaccount/
+     */
+    function createNewAccount($domain, $owner_contact, $billing_contact_reseller, $tech_contact_reseller, $buy_domain, $domain_configuration, $account_type, $end_user_has_accepted_terms)
+    {
+        $request = xmlrpc_encode_request("createNewAccount", array($this->username, $this->password, $domain, $owner_contact, $billing_contact_reseller, $tech_contact_reseller, $buy_domain, $domain_configuration, $account_type, $end_user_has_accepted_terms));
+        return $this->call($request);
+    }
+
+
+    /*
+     * getCustomers
+     * https://www.loopia.se/api/getcustomers/
+     */
+    function getCustomers()
+    {
+        $request = xmlrpc_encode_request("getCustomers", array($this->username, $this->password));
+        return $this->call($request);
+    }
+
+
+    /*
+     * transferCredits
+     * https://www.loopia.se/api/transfercredits/
+     */
+    function transferCredits($sender_username, $sender_password, $recipient_username, $recipient_password, $amount)
+    {
+        $request = xmlrpc_encode_request("transferCredits", array($this->username, $this->password, $sender_username, $sender_password, $recipient_username, $recipient_password, $amount));
         return $this->call($request);
     }
 }
